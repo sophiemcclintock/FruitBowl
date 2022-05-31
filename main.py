@@ -32,6 +32,15 @@ def remove_fruit(l):
     confirmation = "You now have {} {}".format(l[choice][1], l[choice][0])
     print(confirmation)
 
+def add_new_fruit(l):
+    print("You have selected to add new entry")
+    fruit = get_string("Please enter the new fruit -> ")
+    quantity = get_string("Please enter the quantity -> ")
+    new_list = [fruit, quantity]
+    l.append(new_list)
+    confirmation = "You have added {} {}".format(quantity, fruit)
+    print(confirmation)
+
 def menu():
     fruit_list = [['Apples', 5],
                   ['Pears', 2],
@@ -42,6 +51,7 @@ def menu():
     R : Review
     A : Add To Existing fruit
     D : Delete
+    N : Add New Fruit
     Q : Quit
     '''
     run = True
@@ -54,6 +64,8 @@ def menu():
             add_fruit(fruit_list)
         elif user_choice == "D":
             remove_fruit(fruit_list)
+        elif user_choice == "N":
+            add_new_fruit(fruit_list)
         elif user_choice == "Q":
             run = False
             print("Thanks for looking through my program")
